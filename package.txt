@@ -1,0 +1,32 @@
+"config": {
+    "forge": {
+        "make_targets": {
+        "win32": [
+            "squirrel"
+        ],
+        "darwin": [
+            "zip"
+        ],
+        "linux": [
+            "deb",
+            "rpm"
+        ]
+        },
+        "electronPackagerConfig": {
+        "packageManager": "npm"
+        },
+        "electronWinstallerConfig": {
+        "name": "AchievoNext"
+        },
+        "electronInstallerDebian": {},
+        "electronInstallerRedhat": {},
+        "github_repository": {
+        "owner": "Sageeth Mandil",
+        "name": "AchievoNext"
+        },
+        "windowsStoreConfig": {
+        "packageName": "AchievoNext",
+        "name": "AchievoNext"
+        }
+    }
+}
