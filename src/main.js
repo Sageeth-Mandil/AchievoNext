@@ -7,8 +7,9 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: path.join(__dirname, 'assets', 'favicon.ico'),
+    icon: path.join(__dirname, "assets", "icon.ico"),
     webPreferences: {
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     }
   });
@@ -23,6 +24,7 @@ const createWindow = async () => {
 };
 
 app.on('ready', createWindow);
+app.allowRendererProcessReuse = true;
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
