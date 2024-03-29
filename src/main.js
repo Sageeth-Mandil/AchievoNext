@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require("electron");
-const {installExtension, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
+// const {installExtension, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
 const path = require('path');
 
 let mainWindow;
@@ -9,6 +9,9 @@ const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   });
 
   mainWindow.loadURL(path.join(__dirname, 'index.html'));

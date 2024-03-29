@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Todo list</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <div class="wraper-container">
-    <div class="container">
-      <nav class="nav">
-        <ul class="nav__menu">
-          <li class="nav__item--active"><a href="index.html">Tasks</a></li>
-          <li class="nav__item"><a href="calendar.html">Calendar</a></li>
-          <li class="nav__item"><a href="timer.html">Timer</a></li>
-        </ul>
-      </nav>
-      <main>
-        <header class="current-date">
-          <h1 data-time="day">Monday</h1>
-          <h2 data-time="month">Mar 29, 2024</h2>
-        </header>
-        <form class="add-form" action="">
-          <input class="add-form__input" type="text" placeholder="Add a task..." title="type here your new task">
-        </form>
-        <ul class="tasks"></ul>
-        <div class="archive">
-          <button class="archive__circle-button">
-            <img class="archive-img" src="assets/archive-icon.svg" alt="archive tasks" title="archive tasks">
-          </button>
-        </div>
-      </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AchievoNext</title>
+    <link
+      rel="preload"
+      href="css/main.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="css/main.css" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+  </head>
+  <body>
+    <div class="wraper-container">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__menu">
+            <li class="nav__item--active"><a href="index.html">Tasks</a></li>
+            <li class="nav__item"><a href="calendar.html">Calendar</a></li>
+            <li class="nav__item"><a href="timer.html">Timer</a></li>
+          </ul>
+        </nav>
+        <main>
+          <header class="current-date">
+            <h1 data-time="day">Monday</h1>
+            <h2 data-time="month">Mar 29, 2024</h2>
+          </header>
+          <form class="add-form" action="">
+            <input
+              class="add-form__input"
+              type="text"
+              placeholder="Add a task..."
+              title="type here your new task"
+            />
+          </form>
+          <ul class="tasks"></ul>
+          <div class="archive">
+            <button class="archive__circle-button">
+              <img
+                class="archive-img"
+                src="assets/archive-icon.svg"
+                alt="archive tasks"
+                title="archive tasks"
+              />
+            </button>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
 
-  <script src="js/main.js"></script>
-</body>
+    <script type="module">
+      (async () => {
+        const moduleSpecifier = "./main.js";
+        await import(moduleSpecifier);
+      })();
+    </script>
 
+    <script>
+      require("./preload.js");
+    </script>
+
+    <script>
+      window.electronAPI.lazyLoadModule("main").then((main) => {
+        main.init();
+      });
+    </script>
+
+    <script src="./renderer.js"></script>
+  </body>
 </html>
