@@ -1,14 +1,13 @@
 const { app, BrowserWindow } = require("electron");
-// const {installExtension, REACT_DEVELOPER_TOOLS} = require("electron-devtools-installer");
 const path = require('path');
 
 let mainWindow;
-const isDevMode = process.execPath.match(/[\\/]electron/);
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: path.join(__dirname, 'assets', 'favicon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }

@@ -3,6 +3,7 @@
   "productName": "AchievoNext",
   "version": "1.0.0",
   "description": "to-do List",
+  "icon": "src/assets/favicon.ico",
   "type": "module",
   "main": "src/main.js",
   "scripts": {
