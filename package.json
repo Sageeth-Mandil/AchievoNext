@@ -3,49 +3,16 @@
   "productName": "AchievoNext",
   "version": "1.0.0",
   "description": "to-do List",
-  "main": "src/index.js",
+  "type": "module",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "electron .",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint --cache --color --ext .jsx,.js src"
   },
-  "keywords": [],
-  "author": "DELL",
   "license": "MIT",
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "npm"
-      },
-      "electronWinstallerConfig": {
-        "name": "AchievoNext"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "Sageeth Mandil",
-        "name": "AchievoNext"
-      },
-      "windowsStoreConfig": {
-        "packageName": "AchievoNext",
-        "name": "AchievoNext"
-      }
-    }
-  },
   "dependencies": {
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.2.4",
